@@ -1,1 +1,2 @@
 uint32 performance_profile_id
+uint32 dummy

@@ -12,6 +12,7 @@ def service_1(service_info):
     resp.resp12 = "Service one response message"
     retval = PerformanceProfileStruct
     retval.performance_profile_id = 1
+    retval.dummy = 8
     return 1, "response of service_1", resp, retval
 
 
