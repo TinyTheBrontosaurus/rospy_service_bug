@@ -41,7 +41,9 @@ class BadName:
         req.req21 = 36
         req.req22 = "Service two request message"
         req.req23 = 8671.5309
-        retval = self._service_2(36, "Service two request", 867.5309, req)
+        cpumem_info = PerformanceProfileStruct
+        cpumem_info.performance_profile_id = int(self._debug_count)
+        retval = self._service_2(36, "Service two request", 867.5309, req, cpumem_info)
         print retval
 
 

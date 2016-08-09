@@ -20,7 +20,21 @@ def service_2(service_info):
     resp = Message2Resp
     resp.resp21 = 11.234
     resp.resp22 = "Service two response message"
-    return 1.234, "response of service_2", resp
+
+    retval = PerformanceProfileResultsStruct
+    retval.overall = SystemPerformanceMetrics
+    retval.overall.cpu_percent = 68.0
+    retval.overall.memory_percent = 98.3
+    retval.overall.memory_bytes = 123456
+    retval.overall.memory_bytes_humanize = 'Lotta bytes'
+    retval.overall.measurement_time_end = rospy.Time.now()
+    retval.overall.measurement_period = rospy.Duration(123)
+    retval.overall.process_name = 'totally'
+    retval.overall.process_args = ['not', 'a', 'process']
+    retval.overall.pid = 8675309
+    retval.periodic = []
+
+    return 1.234, "response of service_2", resp, retval
 
 
 def main():

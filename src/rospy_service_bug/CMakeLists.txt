@@ -51,6 +51,8 @@ find_package(catkin REQUIRED COMPONENTS
    Message2Resp.msg
    PerformanceProfileStartStruct.msg
    PerformanceProfileStruct.msg
+   PerformanceProfileResultsStruct.msg
+   SystemPerformanceMetrics.msg
  )
 
 ## Generate services in the 'srv' folder
