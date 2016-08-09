@@ -37,8 +37,7 @@ def main():
 
     # The following two lines break it
     retval = CustomMessage
-    retval.resp11 = 1.234
-    retval.resp12 = "1.234"
+    retval.custom_field = "Custom message on the callstack that should be ignored"
 
     if do_first:
         for _ in xrange(3):
