@@ -1,6 +1,8 @@
 uint8 req21
 string req22
 float64 req23
+Message2Req req
 ---
 float32 resp21
 string  resp22
+Message2Resp resp

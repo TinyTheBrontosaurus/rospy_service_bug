@@ -1,5 +1,7 @@
 uint32 req11
 string req12
+Message1Req req
 ---
 float32 resp11
 string  resp12
+Message1Resp resp

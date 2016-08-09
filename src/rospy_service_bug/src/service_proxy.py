@@ -2,6 +2,7 @@
 
 import rospy
 from rospy_service_bug.srv import *
+from rospy_service_bug.msg import *
 
 
 class BadName:
@@ -17,13 +18,20 @@ class BadName:
     def one(self):
         self._debug_count += 1
         print '{} One'.format(self._debug_count)
-        retval = self._service_1(1, "Service one request")
+        req = Message1Req
+        req.req11 = 11
+        req.req12 = "Service one request message"
+        retval = self._service_1(1, "Service one request", req)
         print retval
 
     def two(self):
         self._debug_count += 1
         print '{} Two'.format(self._debug_count)
-        retval = self._service_2(36, "Service two request", 867.5309)
+        req = Message2Req
+        req.req21 = 36
+        req.req22 = "Service two request message"
+        req.req23 = 8671.5309
+        retval = self._service_2(36, "Service two request", 867.5309, req)
         print retval
 
 
