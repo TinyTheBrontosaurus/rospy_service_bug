@@ -31,7 +31,7 @@ class BadName:
         cpumem_init_info.record_period = rospy.Duration(1.0)
         cpumem_init_info.roslog_outputs = False
 
-        retval = self._service_1(1, "Service one request", req, cpumem_init_info)
+        retval = self._service_1(1, "Service one request", req)#, cpumem_init_info)
         print retval
 
     def two(self):
