@@ -18,39 +18,20 @@ class BadName:
     def one(self):
         self._debug_count += 1
         print '{} One'.format(self._debug_count)
-        req = Message1Req
-        req.req11 = 11
-        req.req12 = "Service one request message"
-
-        cpumem_init_info = PerformanceProfileStartStruct
-        cpumem_init_info.parent_by_pid = False
-        cpumem_init_info.parent_pid = 0
-        cpumem_init_info.parent_by_name = True
-        cpumem_init_info.parent_name = 'roslaunch'
-        cpumem_init_info.use_record_period = True
-        cpumem_init_info.record_period = rospy.Duration(1.0)
-        cpumem_init_info.roslog_outputs = False
-
-        retval = self._service_1(1)#, "Service one request", req)#, cpumem_init_info)
+        retval = self._service_1(self._debug_count)
         print retval
 
     def two(self):
         self._debug_count += 1
         print '{} Two'.format(self._debug_count)
-        req = Message2Req
-        req.req21 = 36
-        req.req22 = "Service two request message"
-        req.req23 = 8671.5309
-        cpumem_info = PerformanceProfileStruct
-        cpumem_info.performance_profile_id = int(self._debug_count)
-        retval = self._service_2(36)#, "Service two request", 867.5309, req)#, cpumem_info)
+        retval = self._service_2(self._debug_count)
         print retval
 
 
 def main():
     bn = BadName()
 
-    do_first = False
+    do_first = True
 
     if do_first:
         for _ in xrange(3):

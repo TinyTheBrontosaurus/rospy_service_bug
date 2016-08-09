@@ -1,10 +1,3 @@
 uint8 req21
-#string req22
-#float64 req23
-#Message2Req req
-#PerformanceProfileStruct payload
 ---
 float32 resp21
-#string  resp22
-#Message2Resp resp
-#PerformanceProfileResultsStruct payload
