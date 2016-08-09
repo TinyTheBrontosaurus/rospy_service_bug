@@ -21,7 +21,17 @@ class BadName:
         req = Message1Req
         req.req11 = 11
         req.req12 = "Service one request message"
-        retval = self._service_1(1, "Service one request", req)
+
+        cpumem_init_info = PerformanceProfileStartStruct
+        cpumem_init_info.parent_by_pid = False
+        cpumem_init_info.parent_pid = 0
+        cpumem_init_info.parent_by_name = True
+        cpumem_init_info.parent_name = 'roslaunch'
+        cpumem_init_info.use_record_period = True
+        cpumem_init_info.record_period = rospy.Duration(1.0)
+        cpumem_init_info.roslog_outputs = False
+
+        retval = self._service_1(1, "Service one request", req, cpumem_init_info)
         print retval
 
     def two(self):
