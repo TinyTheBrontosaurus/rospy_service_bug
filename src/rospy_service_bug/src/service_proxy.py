@@ -17,7 +17,9 @@ class PoorlyNamedClass:
         self._debug_count += 1
         print '{} One'.format(self._debug_count)
         # Inserting "BREAKING CODE" here will cause the problem
-        retval = self._service_1(self._debug_count)
+        important = CustomMessage
+        important .custom_field = "Custom message that is important"
+        retval = self._service_1(important )
         print retval
 
 def main():
@@ -27,8 +29,8 @@ def main():
 
     # Inserting "BREAKING CODE" here will cause the problem
     # The following two lines break it, and are called "BREAKING CODE"
-    foo = CustomMessage
-    foo.custom_field = "Custom message on the callstack that should be ignored"
+    #foo = CustomMessage
+    #foo.custom_field = "Custom message on the callstack that should be ignored"
 
     if do_first:
         for _ in xrange(3):
