@@ -5,7 +5,7 @@ from rospy_service_bug.srv import *
 from rospy_service_bug.msg import *
 
 
-class PoorlyNamedClass:
+class TryCustomMessageInRosService:
     def __init__(self):
         rospy.init_node("service_proxy_tester")
         rospy.wait_for_service('service_echo')
@@ -17,6 +17,7 @@ class PoorlyNamedClass:
 
         self._debug_count = 0
 
+    # Calls a service that has a custom message in both request and response
     def echo(self):
         self._debug_count += 1
         print '{} Echo'.format(self._debug_count)
@@ -25,6 +26,7 @@ class PoorlyNamedClass:
         retval = self._service_echo(important)
         print retval
 
+    # Calls a service that has a custom message only in the request only
     def request(self):
         self._debug_count += 1
         print '{} Request'.format(self._debug_count)
@@ -33,6 +35,7 @@ class PoorlyNamedClass:
         retval = self._service_request(important)
         print retval
 
+    # Calls a service that has a custom message in the response only
     def response(self):
         self._debug_count += 1
         print '{} Response'.format(self._debug_count)
@@ -43,22 +46,22 @@ class PoorlyNamedClass:
 # Fail case #1 is a service that has the same message in the request and the response.
 # Fails immediately
 def fail_case_1():
-    bn = PoorlyNamedClass()
+    bn = TryCustomMessageInRosService()
     bn.echo()
 
 
-# Fail case #2 is a service where the request case succeeds, then the following response fails.
+# Fail case #2 is a service where the request case succeeds repeatedly, then the following response fails.
 # In this one, the service throws an exception, while the ServiceProxy hangs
 def fail_case_2():
-    bn = PoorlyNamedClass()
+    bn = TryCustomMessageInRosService()
     for _ in xrange(5):
         bn.request()
     bn.response()
 
 
-# Fail case #3 is similar to #2, except that response is first
+# Fail case #3 is similar to #2, except that response is first then the request fails
 def fail_case_3():
-    bn = PoorlyNamedClass()
+    bn = TryCustomMessageInRosService()
     for _ in xrange(5):
         bn.response()
     bn.request()
@@ -66,7 +69,7 @@ def fail_case_3():
 
 # Fail case #4 just calls with an object in the callstack
 def fail_case_4():
-    bn = PoorlyNamedClass()
+    bn = TryCustomMessageInRosService()
     # These work
     for _ in xrange(5):
         bn.request()
