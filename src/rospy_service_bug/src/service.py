@@ -7,10 +7,10 @@ from rospy_service_bug.msg import *
 
 def service_1(service_info):
     print service_info
-    retval = PerformanceProfileStruct
-    retval.performance_profile_id = 1
-    retval.dummy = 8
-    return retval
+    #retval = PerformanceProfileStruct
+    #retval.performance_profile_id = 1
+    #retval.dummy = 8
+    return 8
 
 
 def service_2(service_info):

@@ -18,9 +18,7 @@ class BadName:
     def one(self):
         self._debug_count += 1
         print '{} One'.format(self._debug_count)
-        # The following two lines break it
-        cpumem_info = PerformanceProfileStruct
-        cpumem_info.performance_profile_id = 1
+
         retval = self._service_1(self._debug_count)
         print retval
 
@@ -36,6 +34,10 @@ def main():
     bn = BadName()
 
     do_first = True
+
+    # The following two lines break it
+    cpumem_info = PerformanceProfileStruct
+    cpumem_info.performance_profile_id = 1
 
     if do_first:
         for _ in xrange(3):
