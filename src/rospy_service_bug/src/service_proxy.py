@@ -31,7 +31,7 @@ class BadName:
         cpumem_init_info.record_period = rospy.Duration(1.0)
         cpumem_init_info.roslog_outputs = False
 
-        retval = self._service_1(1, "Service one request", req)#, cpumem_init_info)
+        retval = self._service_1(1)#, "Service one request", req)#, cpumem_init_info)
         print retval
 
     def two(self):
@@ -43,7 +43,7 @@ class BadName:
         req.req23 = 8671.5309
         cpumem_info = PerformanceProfileStruct
         cpumem_info.performance_profile_id = int(self._debug_count)
-        retval = self._service_2(36, "Service two request", 867.5309, req)#, cpumem_info)
+        retval = self._service_2(36)#, "Service two request", 867.5309, req)#, cpumem_info)
         print retval
 
 

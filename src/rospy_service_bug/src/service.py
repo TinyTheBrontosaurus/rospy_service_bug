@@ -13,7 +13,8 @@ def service_1(service_info):
     retval = PerformanceProfileStruct
     retval.performance_profile_id = 1
     retval.dummy = 8
-    return 1, "response of service_1", resp, retval
+    #return 1, "response of service_1", resp, retval
+    return retval
 
 
 def service_2(service_info):
@@ -25,7 +26,7 @@ def service_2(service_info):
     retval = PerformanceProfileResultsStruct
     retval.effit = 2
 
-    return 1.234, "response of service_2", resp, retval
+    return 1.234#, "response of service_2", resp, retval
 
 
 def main():
