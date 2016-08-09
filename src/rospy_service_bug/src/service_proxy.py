@@ -36,7 +36,7 @@ def main():
     do_first = True
 
     # The following two lines break it
-    retval = Message1Resp
+    retval = CustomMessage
     retval.resp11 = 1.234
     retval.resp12 = "1.234"
 

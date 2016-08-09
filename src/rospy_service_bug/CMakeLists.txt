@@ -45,14 +45,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate messages in the 'msg' folder
  add_message_files(
    FILES
-   Message1Req.msg
-   Message1Resp.msg
-   Message2Req.msg
-   Message2Resp.msg
-   PerformanceProfileStartStruct.msg
-   PerformanceProfileStruct.msg
-   PerformanceProfileResultsStruct.msg
-   SystemPerformanceMetrics.msg
+   CustomMessage.msg
  )
 
 ## Generate services in the 'srv' folder

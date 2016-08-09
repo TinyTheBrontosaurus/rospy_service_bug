@@ -7,7 +7,7 @@ from rospy_service_bug.msg import *
 
 def service_1(service_info):
     print service_info
-    retval = Message1Resp
+    retval = CustomMessage
     retval.resp11 = 1.234
     retval.resp12 = "1.234"
     return retval

@@ -1,9 +1,0 @@
-float64 cpu_percent
-float64 memory_percent
-uint32 memory_bytes
-string memory_bytes_humanize
-time measurement_time_end
-duration measurement_period
-string process_name
-string[] process_args
-int32 pid
