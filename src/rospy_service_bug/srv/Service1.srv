@@ -6,4 +6,4 @@ Message1Req req
 float32 resp11
 string  resp12
 Message1Resp resp
-#PerformanceProfileStruct payload
+PerformanceProfileStruct payload

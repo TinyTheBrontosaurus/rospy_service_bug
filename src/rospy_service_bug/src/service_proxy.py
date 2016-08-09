@@ -50,7 +50,7 @@ class BadName:
 def main():
     bn = BadName()
 
-    do_first = True
+    do_first = False
 
     if do_first:
         for _ in xrange(3):
