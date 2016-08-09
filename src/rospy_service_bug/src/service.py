@@ -12,7 +12,7 @@ def service_1(service_info):
     resp.resp12 = "Service one response message"
     retval = PerformanceProfileStruct
     retval.performance_profile_id = 1
-    return 1, "response of service_1", resp, retval
+    return 1, "response of service_1", resp#, retval
 
 
 def service_2(service_info):
