@@ -49,11 +49,21 @@ class BadName:
 
 def main():
     bn = BadName()
-    for _ in xrange(3):
-        bn.one()
+
+    do_first = False
+
+    if do_first:
+        for _ in xrange(3):
+            bn.one()
 
     for _ in xrange(3):
         bn.two()
+
+    if not do_first:
+        for _ in xrange(3):
+            bn.one()
+
+
 
 
 if __name__ == '__main__':
