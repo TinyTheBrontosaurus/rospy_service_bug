@@ -39,24 +39,47 @@ class PoorlyNamedClass:
         retval = self._service_response("benign request")
         print retval
 
+
+# Fail case #1 is a service that has the same message in the request and the response.
+# Fails immediately
+def fail_case_1():
+    bn = PoorlyNamedClass()
+    bn.echo()
+
+
+# Fail case #2 is a service where the request case succeeds, then the following response fails.
+# In this one, the service throws an exception, while the ServiceProxy hangs
+def fail_case_2():
+    bn = PoorlyNamedClass()
+    for _ in xrange(5):
+        bn.request()
+    bn.response()
+
+
+# Fail case #3 is similar to #2, except that response is first
+def fail_case_3():
+    bn = PoorlyNamedClass()
+    for _ in xrange(5):
+        bn.response()
+    bn.request()
+
+
+# Fail case #4 just calls with an object in the callstack
+def fail_case_4():
+    bn = PoorlyNamedClass()
+    # These work
+    for _ in xrange(5):
+        bn.request()
+    foo = CustomMessage
+    foo.custom_field = "Custom message on the callstack that should be ignored"
+    # This one fails
+    bn.response()
+
+
 def main():
     bn = PoorlyNamedClass()
 
-    do_first = True
-
-    # Inserting "BREAKING CODE" here will cause the problem
-    # The following two lines break it, and are called "BREAKING CODE"
-    #foo = CustomMessage
-    #foo.custom_field = "Custom message on the callstack that should be ignored"
-
-    #for _ in xrange(3):
-    #    bn.echo()
-
-    #for _ in xrange(3):
-    #    bn.request()
-
-    for _ in xrange(3):
-        bn.response()
+    fail_case_4()
 
 
 if __name__ == '__main__':
