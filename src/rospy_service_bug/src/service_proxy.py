@@ -36,8 +36,9 @@ def main():
     do_first = True
 
     # The following two lines break it
-    cpumem_info = PerformanceProfileStruct
-    cpumem_info.performance_profile_id = 1
+    retval = Message1Resp
+    retval.resp11 = 1.234
+    retval.resp12 = "1.234"
 
     if do_first:
         for _ in xrange(3):
