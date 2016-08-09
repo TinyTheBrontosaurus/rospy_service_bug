@@ -31,18 +31,27 @@ class BadName:
 def main():
     bn = BadName()
 
-    do_first = True
+    do_first = False
 
     if do_first:
         for _ in xrange(3):
             bn.one()
 
-    for _ in xrange(3):
-        bn.two()
+        for _ in xrange(3):
+            bn.two()
+
+        for _ in xrange(3):
+            bn.one()
 
     if not do_first:
         for _ in xrange(3):
+            bn.two()
+
+        for _ in xrange(3):
             bn.one()
+
+        for _ in xrange(3):
+            bn.two()
 
 
 
