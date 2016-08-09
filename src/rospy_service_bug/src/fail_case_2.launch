@@ -1,0 +1,11 @@
+<launch>
+  <node pkg="rospy_service_bug" type="service_proxy.py"
+      name="service_proxy"
+      output="screen"/>
+
+  <node pkg="rospy_service_bug" type="service.py"
+    name="service"
+    output="screen"/>
+
+  <param name="fail_case" value="2"/>
+</launch>

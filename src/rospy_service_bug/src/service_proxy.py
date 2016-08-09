@@ -77,9 +77,17 @@ def fail_case_4():
 
 
 def main():
-    bn = PoorlyNamedClass()
 
-    fail_case_4()
+    fail_case = rospy.get_param("fail_case", 0)
+
+    if fail_case is 1:
+        fail_case_1()
+    elif fail_case is 2:
+        fail_case_2()
+    elif fail_case is 3:
+        fail_case_3()
+    elif fail_case is 4:
+        fail_case_4()
 
 
 if __name__ == '__main__':
