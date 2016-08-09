@@ -24,7 +24,7 @@ def service_2(service_info):
     retval = PerformanceProfileResultsStruct
     retval.effit = 2
 
-    return 1.234, "response of service_2", resp, retval
+    return 1.234, "response of service_2", resp#, retval
 
 
 def main():
